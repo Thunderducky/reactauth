@@ -19,6 +19,10 @@ app.use(session({secret: process.env.SESSION_SECRET, resave: true, saveUninitial
 app.use(passport.initialize());
 app.use(passport.session());
 
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+}
+
 app.get("/api/hello", function(req, res){
     res.send("hello world! Welcome!");
 })
@@ -37,7 +41,7 @@ app.get('/api/secret/number', isAuthenticated, (req, res) => {
 });
 
 app.use("*", function(req, res){
-    res.sendFile(path.join(__dirname), "./client/build/index.html");
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
 
 const PORT = process.env.PORT || 3001
