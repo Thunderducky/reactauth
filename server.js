@@ -36,7 +36,7 @@ app.get('/api/secret/number', isAuthenticated, (req, res) => {
     res.json(7);
 });
 
-app.use(function(req, res){
+app.use("*", function(req, res){
     res.sendFile(path.join(__dirname), "./client/build/index.html");
 })
 
