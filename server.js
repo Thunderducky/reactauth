@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
@@ -35,6 +36,9 @@ app.get('/api/secret/number', isAuthenticated, (req, res) => {
     res.json(7);
 });
 
+app.use(function(req, res){
+    res.sendFile(path.join(__dirname), "./client/build/index.html");
+})
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
