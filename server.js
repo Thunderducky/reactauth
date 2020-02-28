@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const db = require("./models");
 const passport = require("./config/passport");
 const isAuthenticated = require("./middleware/isAuthenticated");
-mongoose.connect("mongodb://localhost/reactauth");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactauth");
 
 
 const authRoutes = require("./routes/authRoutes");
@@ -36,5 +36,5 @@ app.get('/api/secret/number', isAuthenticated, (req, res) => {
 });
 
 
-
-app.listen(3001);
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
