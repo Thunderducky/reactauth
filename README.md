@@ -11,9 +11,13 @@ It is purposefully light on features in order to show the minimum pieces necessa
 * Frontend: React (Create-React-App), axios
 * Auth: Passport.js, Passport-local, bcryptjs, express-session
 
-## Running the project locally
+## Running the project locally   
 If you want to run the project locally you'll want two terminal windows to work with
-**Terminal 1: root of the project**
+**Terminal 1: root of the project**  
 `node server.js`
-**Terminal 2: in the `/client` folder**
+
+
+**Terminal 2: in the `/client` folder**  
 `npm start`
+
+
